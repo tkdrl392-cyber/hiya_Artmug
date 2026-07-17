@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <!-- ==========================================
+         기본 설정
+    =========================================== -->
+
+    <!-- 문자 인코딩 -->
+    <meta charset="UTF-8">
+
+    <!-- 모바일 화면 대응 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 브라우저 제목 -->
+    <title>Artmug Live2D Commission</title>
+
+    <!-- CSS 연결 -->
+     <style>
+        /* ==========================================
+   01. CSS 변수 (전역 변수)
+========================================== */
+
+:root {
+
+    /* ==============================
+       Color
+    ============================== */
+
+    /* 메인 컬러 */
+    --main-color: #F9BBDA;
+
+    /* 보조 컬러 */
+    --sub-color: #FA9ECC;
+
+    /* 기본 글자 */
+    --dark: #2E2E2E;
+
+    /* 흰색 */
+    --white: #FFFFFF;
+
+    /* 회색 */
+    --gray: #777777;
+
+    /* 연한 회색 */
+    --light-gray: #F5F5F5;
+
+    /* 배경색 */
+    --background: #FFF9FC;
+
+
+    /* ==============================
+       Layout
+    ============================== */
+
+    --max-width: 1100px;
+
+    --border-radius: 15px;
+
+    --section-padding: 100px;
+
+
+    /* ==============================
+       Animation
+    ============================== */
+
+    --transition: 0.3s ease;
+
+
+    /* ==============================
+       Shadow
+    ============================== */
+
+    --shadow: 0 5px 15px rgba(0, 0, 0, .08);
+
+}
+
+
+/* ==========================================
+   02. Reset
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family: "Pretendard", sans-serif;
+
+    color:var(--dark);
+
+    background:var(--background);
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+button{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+section{
+
+    padding:var(--section-padding) 0;
+
+}
+
+
+/* ==========================================
+   03. Typography
+========================================== */
+
+h1{
+
+    font-size:48px;
+
+    font-weight:700;
+
+}
+
+h2{
+
+    font-size:36px;
+
+    font-weight:700;
+
+}
+
+h3{
+
+    font-size:28px;
+
+    font-weight:600;
+
+}
+
+p{
+
+    font-size:16px;
+
+    color:var(--gray);
+
+}
+
+
+/* ==========================================
+   04. Layout
+========================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:var(--max-width);
+
+    margin:0 auto;
+
+    padding:0 20px;
+
+}
+
+
+/* ==========================================
+   05. Header
+========================================== */
+
+header{
+
+    width:100%;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    z-index:999;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/* ==========================================
+   06. Hero
+========================================== */
+
+#hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+    padding:120px 0;
+
+}
+
+.hero-content{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:80px;
+
+}
+
+.hero-avatar{
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.hero-avatar img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    /* 위쪽 중심으로 잘라냄 */
+    object-position:center -50%;
+
+    /* 조금 확대 */
+    transform:scale(1.45);
+}
+
+.hero-info{
+
+    flex:1;
+
+}
+/* Hero 카드 */
+
+.hero-card{
+
+    background:#FFEAF3;
+
+    border:2px solid #f7d9e7;
+
+    border-radius:25px;
+
+    padding:60px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+.hero-info h1{
+
+    font-size:58px;
+
+    margin-bottom:15px;
+
+}
+
+.hero-info h2{
+
+    color:var(--main-color);
+
+    margin-bottom:30px;
+
+}
+
+.hero-info p{
+
+    margin-bottom:15px;
+
+}
+
+.badge-row{
+
+    display:flex;
+
+    gap:10px;
+
+    margin:30px 0;
+
+}
+
+.badge{
+
+    background:#FFFFFF;
+
+    color:#F48CBF;
+
+    border:2px solid #F9BBD9;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+}
+.hero-btn{
+
+    background:#FFFFFF;
+
+    color:#F9BBD9;
+
+    border:2px solid #F9BBD9;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+}
+.hero-btn:hover{
+
+    background:#F9BBD9;
+
+    color:#FFFFFF;
+
+}
+.hero-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+}
+
+.hero-image{
+
+    flex:1;
+
+}
+
+.hero-text{
+
+    flex:1;
+
+}
+
+.hero-button{
+
+    margin-top:30px;
+
+}
+
+status-open{
+
+    background:#EAF9E8;
+
+    color:#54A35C;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+.status-close{
+
+    background:#FFEAEA;
+
+    color:#E57F7F;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   07. Schedule
+========================================== */
+
+#schedule{
+
+    background:var(--white);
+
+}
+
+
+/* ==========================================
+   08. Schedule
+========================================== */
+
+#schedule{
+
+    padding:100px 0;
+
+}
+
+
+/* ==========================================
+   Schedule 제목
+========================================== */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+.section-title span{
+
+    width:5px;
+
+    height:35px;
+
+    background:var(--main-color);
+
+    border-radius:10px;
+
+}
+
+.section-title h2{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+}
+
+
+/* ==========================================
+   Schedule 전체 박스
+========================================== */
+
+.schedule-box{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    border:1px solid #F7D9E7;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:#FFFFFF;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/* ==========================================
+   월 카드
+========================================== */
+
+.month-card{
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    border-right:1px solid #F7D9E7;
+
+}
+
+.month-card:last-child{
+
+    border-right:none;
+
+}
+
+
+/* ==========================================
+   월 제목
+========================================== */
+
+.month-card h3{
+
+    font-size:30px;
+
+    color:var(--dark);
+
+}
+
+.month-card p{
+
+    color:var(--gray);
+
+    margin-bottom:25px;
+
+}
+
+
+/* ==========================================
+   슬롯 영역
+========================================== */
+
+.slot-wrap{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+}
+
+
+/* ==========================================
+   슬롯 하나
+========================================== */
+
+.slot{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+/* ==========================================
+   원형 아이콘
+========================================== */
+
+.circle{
+
+    width:32px;
+
+    height:32px;
+
+    border-radius:50%;
+
+}
+
+
+/* 예약 가능 */
+
+.circle.open{
+
+    background:#D9F5D4;
+
+    border:2px solid #8FD37C;
+
+}
+
+
+/* 마감 */
+
+.circle.close{
+
+    background:#FFF3F3;
+
+    border:2px solid #F4A8A8;
+
+}
+
+
+/* ==========================================
+   번호
+========================================== */
+
+.slot span{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   상태
+========================================== */
+
+.slot small{
+
+    background:#FFEAEA;
+
+    color:#E57F7F;
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+}
+
+
+/* ==========================================
+   범례
+========================================== */
+
+.schedule-info{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    margin-top:30px;
+
+}
+
+
+/* 범례 항목 */
+
+.schedule-info div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+/* ==========================================
+   09. Process
+========================================== */
+
+#process{
+
+    background:var(--white);
+
+}
+
+
+/* ==========================================
+   10. Price
+========================================== */
+
+#price{
+
+    background:var(--light-gray);
+
+}
+
+
+/* ==========================================
+   11. Portfolio
+========================================== */
+
+#portfolio{
+
+    background:var(--white);
+
+}
+
+
+/* ==========================================
+   12. Sample
+========================================== */
+
+#sample{
+
+    background:var(--light-gray);
+
+}
+
+
+/* ==========================================
+   13. Option
+========================================== */
+
+#option{
+
+    background:var(--white);
+
+}
+
+
+/* ==========================================
+   14. FAQ
+========================================== */
+
+#faq{
+
+    background:var(--light-gray);
+
+}
+
+
+/* ==========================================
+   15. Contact
+========================================== */
+
+#contact{
+
+    background:var(--white);
+
+}
+
+
+/* ==========================================
+   16. Footer
+========================================== */
+
+footer{
+
+    background:var(--dark);
+
+    color:var(--white);
+
+    padding:50px 0;
+
+}
+
+
+/* ==========================================
+   17. Responsive
+========================================== */
+
+@media (max-width:768px){
+
+    .hero-content{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    h1{
+
+        font-size:36px;
+
+    }
+
+    h2{
+
+        font-size:28px;
+
+    }
+
+}
+     </style>
+
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         Header
+         상단 메뉴
+    =========================================== -->
+
+    <header id="header">
+
+        <div class="container">
+
+            <!-- 로고 -->
+            <div class="logo">
+
+            </div>
+            
+            <!-- 메뉴 -->
+            <nav>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+<!-- ==========================================
+     Hero
+========================================== -->
+
+<section id="hero">
+
+    <div class="container">
+
+        <div class="hero-card">
+
+            <div class="hero-content">
+
+
+            <!-- ==========================
+                 프로필 이미지
+            =========================== -->
+
+            <div class="hero-avatar">
+
+                <img src="https://raw.githubusercontent.com/tkdrl392-cyber/hiya_Artmug/main/img/hiya.png"alt="히야삐 프로필">
+
+            </div>
+
+            <!-- ==========================
+                 소개
+            =========================== -->
+
+            <div class="hero-info">
+
+                <h1>히야삐</h1>
+
+                <h2>
+                    Live2D 리깅 · VTuber 모델 · 일러스트
+                </h2>
+
+                <p>
+                    안녕하세요.
+                    Live2D 리거이자 일러스트레이터 히야삐입니다.
+                </p>
+
+                <p>
+                    귀엽고 사랑스러운 캐릭터를
+                    더욱 생동감 있게 움직일 수 있도록
+                    섬세한 리깅을 작업하고 있습니다.
+                </p>
+
+                <div class="badge-row">
+
+                    <span class="badge">#Live2D</span>
+
+                    <span class="badge">#VTuber</span>
+
+                    <span class="badge">#리깅</span>
+
+                </div>
+
+                <a href="#contact" class="hero-btn">
+
+                    문의하기 →
+
+                </a>
+
+            </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     Schedule
+========================================== -->
+
+<section id="schedule">
+
+    <div class="container">
+
+        <!-- 제목 -->
+        <div class="section-title">
+            <span></span>
+            <h2>예약 슬롯</h2>
+        </div>
+
+        <!-- 예약 박스 -->
+        <div class="schedule-box">
+
+            <!-- 7월 -->
+            <div class="month-card">
+
+                <h3>7월</h3>
+                <p>Jul</p>
+
+                <div class="slot-wrap">
+
+                    <div class="slot">
+                        <div class="circle open"></div>
+                        <span>01</span>
+                        <small class="status-open">예약 가능</small>
+                    </div>
+
+                    <div class="slot">
+                        <div class="circle open"></div>
+                        <span>02</span>
+                        <small class="status-open">예약 가능</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 8월 -->
+            <div class="month-card">
+
+                <h3>8월</h3>
+                <p>Aug</p>
+
+                <div class="slot-wrap">
+
+                    <div class="slot">
+                        <div class="circle open"></div>
+                        <span>01</span>
+                        <small class="status-open">예약 가능</small>
+                    </div>
+
+                    <div class="slot">
+                        <div class="circle close"></div>
+                        <span>02</span>
+                        <small class="status-close">마감</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 9월 -->
+            <div class="month-card">
+
+                <h3>9월</h3>
+                <p>Sep</p>
+
+                <div class="slot-wrap">
+
+                    <div class="slot">
+                        <div class="circle close"></div>
+                        <span>01</span>
+                        <small class="status-close">마감</small>
+                    </div>
+
+                    <div class="slot">
+                        <div class="circle close"></div>
+                        <span>02</span>
+                        <small class="status-close">마감</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 10월 -->
+            <div class="month-card">
+
+                <h3>10월</h3>
+                <p>Oct</p>
+
+                <div class="slot-wrap">
+
+                    <div class="slot">
+                        <div class="circle open"></div>
+                        <span>01</span>
+                        <small class="status-open">예약 가능</small>
+                    </div>
+
+                    <div class="slot">
+                        <div class="circle open"></div>
+                        <span>02</span>
+                        <small class="status-open">예약 가능</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 범례 -->
+        <div class="schedule-info">
+
+            <div>
+                <span class="circle open"></span>
+                예약가능
+            </div>
+
+            <div>
+                <span class="circle close"></span>
+                마감
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</section>
+
+    <section id="notice">
+
+        <div class="container">
+           
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         Process
+         작업 과정
+    =========================================== -->
+
+    <section id="process">
+
+        <div class="container">
+        <p>첫 번째 테스트입니다.</p>
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         Price
+         가격표
+    =========================================== -->
+
+    <section id="price">
+
+        <div class="container">
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         Portfolio
+         포트폴리오
+    =========================================== -->
+
+    <section id="portfolio">
+
+        <div class="container">
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         Sample
+         리깅 샘플
+    =========================================== -->
+
+    <section id="sample">
+
+        <div class="container">
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         Option
+         기본 제공 옵션
+    =========================================== -->
+
+    <section id="option">
+
+        <div class="container">
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         FAQ
+         자주 묻는 질문
+    =========================================== -->
+
+    <section id="faq">
+
+        <div class="container">
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         Contact
+         신청 양식
+    =========================================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         Footer
+    =========================================== -->
+    <footer>
+
+        <div class="container">
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==========================================
+         JavaScript
+    =========================================== -->
+    <script>
+    // JS
+    </script>
+
+</body>
+
+</html>
+
+
